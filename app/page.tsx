@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-const passwordGate = () => {
+const PasswordGate = () => {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
@@ -15,7 +15,7 @@ const passwordGate = () => {
     }
   }, [router]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password === "butterflymimicry") {
       localStorage.setItem('isAuthenticated', 'true'); // Mark the user as authenticated
@@ -48,4 +48,4 @@ const passwordGate = () => {
   );
 };
 
-export default passwordGate;
+export default PasswordGate;
