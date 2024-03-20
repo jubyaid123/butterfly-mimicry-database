@@ -2,12 +2,18 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
+import useAuth from '../hooks/gateAuth'
+
 
 export default function Login({
+
   searchParams,
 }: {
   searchParams: { message: string };
 }) {
+  useAuth();
+
+  
   const signIn = async (formData: FormData) => {
     "use server";
 
